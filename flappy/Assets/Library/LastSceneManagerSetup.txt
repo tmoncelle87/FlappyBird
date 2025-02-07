@@ -1,0 +1,5 @@
+sceneSetups:
+- path: E:/GitHub/FlappyBirdExpert/New Unity Project/Assets/StartMenuFlappyBird.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
