@@ -11,8 +11,8 @@ public class BirdScript : MonoBehaviour
     public static int highScore = 0;
     public Text scoreText;
 
-    public AudioClip flapSound; // AudioClip for the flap sound effect
-    private AudioSource audioSource;
+    AudioClip flapSound; // AudioClip for the flap sound effect
+    AudioSource audioSource;
 
     void Start()
     {
@@ -54,6 +54,16 @@ public class BirdScript : MonoBehaviour
 
     void Update()
     {
+        if (myRigidbody.transform.position.y < -19.25 || myRigidbody.transform.position.y > 19.25)
+        {
+            birdIsAlive = false;
+            if (logic != null)
+            {
+                logic.gameOver();
+            }
+            SaveHighScore();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
@@ -75,6 +85,7 @@ public class BirdScript : MonoBehaviour
             }
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
