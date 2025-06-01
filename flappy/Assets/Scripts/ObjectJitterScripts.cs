@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectJitterScripts : MonoBehaviour
 {
@@ -16,13 +17,17 @@ public class ObjectJitterScripts : MonoBehaviour
     {
         ObjectImage = GetComponent<RectTransform>();
         Vector2 pos = ObjectImage.anchoredPosition;
-        if (pos.x > rightLimit)
+        if (pos.x >= rightLimit)
         {
             movingRight = false;
         }
-        else if (pos.x < leftLimit)
+        else if (pos.x <= leftLimit)
         {
             movingRight = true;
+        }
+        else
+        {
+            movingRight = Random.value > 0.5f;
         }
     }
 

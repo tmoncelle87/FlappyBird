@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 14536470}
   - component: {fileID: 14536472}
   - component: {fileID: 14536471}
+  - component: {fileID: 14536473}
   m_Layer: 5
   m_Name: Left Cloud
   m_TagString: Untagged
@@ -199,6 +200,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14536469}
   m_CullTransparentMesh: 1
+--- !u!114 &14536473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14536469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -800
+  rightLimit: 800
 --- !u!1 &29891051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1434,7 @@ GameObject:
   - component: {fileID: 1059427741}
   - component: {fileID: 1059427743}
   - component: {fileID: 1059427742}
+  - component: {fileID: 1059427744}
   m_Layer: 5
   m_Name: Right Cloud
   m_TagString: Untagged
@@ -1483,6 +1500,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059427740}
   m_CullTransparentMesh: 1
+--- !u!114 &1059427744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059427740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -800
+  rightLimit: 800
 --- !u!1 &1062175655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1744,7 @@ GameObject:
   - component: {fileID: 1230474035}
   - component: {fileID: 1230474037}
   - component: {fileID: 1230474036}
+  - component: {fileID: 1230474038}
   m_Layer: 5
   m_Name: Mountains
   m_TagString: Untagged
@@ -1777,6 +1810,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230474034}
   m_CullTransparentMesh: 1
+--- !u!114 &1230474038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230474034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -45
+  rightLimit: -15
 --- !u!1 &1256101713
 GameObject:
   m_ObjectHideFlags: 0

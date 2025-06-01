@@ -11,8 +11,7 @@ public class BirdScript : MonoBehaviour
     public static int highScore = 0;
     public Text scoreText;
 
-    AudioClip flapSound; // AudioClip for the flap sound effect
-    AudioSource audioSource;
+
 
     void Start()
     {
@@ -33,21 +32,6 @@ public class BirdScript : MonoBehaviour
             }
         }
 
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-
-        if (flapSound != null)
-        {
-            audioSource.clip = flapSound;
-            audioSource.volume = 0.4f; // Set volume to 60% here
-        }
-        else
-        {
-            Debug.LogError("Assign a flap sound AudioClip to BirdScript in the Inspector!");
-        }
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
@@ -68,21 +52,7 @@ public class BirdScript : MonoBehaviour
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
 
-            if (audioSource != null && audioSource.clip != null)
-            {
-                audioSource.Play();
-            }
-            else
-            {
-                if (audioSource == null)
-                {
-                    Debug.LogWarning("Audio Source not assigned in Bird Script.");
-                }
-                if (audioSource.clip == null)
-                {
-                    Debug.LogWarning("Audio Clip not assigned in Bird Script.");
-                }
-            }
+            
         }
     }
 

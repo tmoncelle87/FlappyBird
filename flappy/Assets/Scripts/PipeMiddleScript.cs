@@ -1,36 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PipeMiddleScript : MonoBehaviour
 {
-    public LogicScript logic;      // Reference to the LogicScript.
-    public BirdScript birdLogic;   // Reference to the BirdScript.
+    public AudioClip flapSound;
+    private AudioSource audioSource;
+    public LogicScript logic;
+    public BirdScript birdLogic;
 
     void Start()
     {
-        // Find the LogicScript component using its tag.
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        // Find the BirdScript component using its tag.
         birdLogic = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdScript>();
-    }
 
-    void Update()
-    {
-        // Per-frame updates (currently empty).
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the colliding object is on layer 3 (Bird Layer).
         if (collision.gameObject.layer == 3)
         {
-            // Add score using the LogicScript.
-            logic.addScore(1);
-            //Update the players score
-            birdLogic.UpdatePlayerScore(1);
+            if (logic != null) logic.addScore(1);
+            if (birdLogic != null) birdLogic.UpdatePlayerScore(1);
+            if (flapSound != null) audioSource.PlayOneShot(flapSound);
         }
     }
 }

@@ -209,12 +209,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 69770590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8e794483585b449aabcb2623ecb786, type: 3}
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  leftLimit: -650
-  rightLimit: 650
+  speed: 17
+  leftLimit: -800
+  rightLimit: 800
 --- !u!1 &128155860
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,10 +364,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128155860}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bca6c9855dc71ec4a93c01d2cae086e8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -539,12 +539,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 225757070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8e794483585b449aabcb2623ecb786, type: 3}
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   leftLimit: -45
-  rightLimit: -25
+  rightLimit: -15
 --- !u!1 &539909891
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipeObject1: {fileID: 734451572860239185, guid: 9515e1d0f01698f459ab84ea9295f534, type: 3}
   pipeObject2: {fileID: 734451572860239185, guid: 9515e1d0f01698f459ab84ea9295f534, type: 3}
+  pipeGap: {fileID: 7629447654000782653, guid: 2d02585fcc858574381bac81ee54151e, type: 3}
   spawnRate: 5
   topPipeYValue: 10
 --- !u!4 &539909893
@@ -1130,12 +1131,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2101264012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8e794483585b449aabcb2623ecb786, type: 3}
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  leftLimit: -650
-  rightLimit: 650
+  speed: 17
+  leftLimit: -800
+  rightLimit: 800
 --- !u!1 &2145665612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1146,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2145665614}
-  - component: {fileID: 2145665616}
   - component: {fileID: 2145665615}
   m_Layer: 0
   m_Name: LogicManager
@@ -1185,17 +1185,3 @@ MonoBehaviour:
   scoreText: {fileID: 1302110248}
   GameScreen: FlappyBirdGameScene
   GameOverScreen: DeathScreneFlappyBird'
---- !u!114 &2145665616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145665612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76bbe605284bbd4e96db641a0db34d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logic: {fileID: 0}
-  birdLogic: {fileID: 0}
