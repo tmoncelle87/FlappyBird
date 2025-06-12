@@ -1259,6 +1259,7 @@ GameObject:
   - component: {fileID: 970080009}
   - component: {fileID: 970080011}
   - component: {fileID: 970080010}
+  - component: {fileID: 970080012}
   m_Layer: 5
   m_Name: Mountains
   m_TagString: Untagged
@@ -1324,6 +1325,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970080008}
   m_CullTransparentMesh: 1
+--- !u!114 &970080012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970080008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -45
+  rightLimit: -15
 --- !u!1 &1004778832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1587,7 @@ GameObject:
   - component: {fileID: 1372007509}
   - component: {fileID: 1372007511}
   - component: {fileID: 1372007510}
+  - component: {fileID: 1372007512}
   m_Layer: 5
   m_Name: Left Cloud
   m_TagString: Untagged
@@ -1587,7 +1604,7 @@ RectTransform:
   m_GameObject: {fileID: 1372007508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2034590492}
@@ -1595,7 +1612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -640.7001, y: 412.40002}
+  m_AnchoredPosition: {x: -750, y: 412.40002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372007510
@@ -1636,6 +1653,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372007508}
   m_CullTransparentMesh: 1
+--- !u!114 &1372007512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372007508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -750
+  rightLimit: 750
 --- !u!1 &1452933902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2104,7 @@ GameObject:
   - component: {fileID: 1834798741}
   - component: {fileID: 1834798743}
   - component: {fileID: 1834798742}
+  - component: {fileID: 1834798744}
   m_Layer: 5
   m_Name: Right Cloud
   m_TagString: Untagged
@@ -2088,7 +2121,7 @@ RectTransform:
   m_GameObject: {fileID: 1834798740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2034590492}
@@ -2096,7 +2129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 649.30005, y: 412.40002}
+  m_AnchoredPosition: {x: 750, y: 412.40002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834798742
@@ -2137,6 +2170,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834798740}
   m_CullTransparentMesh: 1
+--- !u!114 &1834798744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834798740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6f97e73912e945873259a515f26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftLimit: -750
+  rightLimit: 750
 --- !u!1 &1958140666
 GameObject:
   m_ObjectHideFlags: 0

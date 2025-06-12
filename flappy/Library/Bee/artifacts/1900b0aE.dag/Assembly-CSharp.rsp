@@ -382,6 +382,8 @@
 "Assets/Scripts/CharacterManagerScript.cs"
 "Assets/Scripts/CharacterScript.cs"
 "Assets/Scripts/CharacterSelectLogicScript.cs"
+"Assets/Scripts/CharacterSelectorScript.cs"
+"Assets/Scripts/ChcratacterTestScript.cs"
 "Assets/Scripts/DeathScreneLogicScript.cs"
 "Assets/Scripts/LogiceManage.cs"
 "Assets/Scripts/LogicScript.cs"

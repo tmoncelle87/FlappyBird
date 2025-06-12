@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CharacterDatabase : ScriptableObject
 {
+    public string characterName;
+    public Sprite characterSprite;
+    public GameObject characterPrefab;
     public CharacterScript[] characters;
 
     public int CharacterCount

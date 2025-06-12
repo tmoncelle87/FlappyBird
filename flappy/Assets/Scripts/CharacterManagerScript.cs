@@ -1,66 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
 public class CharacterManagerScript : MonoBehaviour
 {
-    public CharacterDatabase characterDB;
-    public SpriteRenderer artworkSprite;
-    private int selectedOption = 0;
+    public Transform spawnStartPoint; // Empty GameObject in scene
+    public List<ChcratacterTestScript> characters = new List<ChcratacterTestScript>();
+    public int Displayed_Character = 0;
+    private GameObject currentCharacterInstance;
 
     void Start()
     {
-        if (characterDB == null)
-        {
-            Debug.LogError("CharacterDatabase is not assigned.");
-            return;
-        }
-
-        // Load the selectedOption from PlayerPrefs
-        if (PlayerPrefs.HasKey("selectedOption"))
-        {
-            selectedOption = PlayerPrefs.GetInt("selectedOption");
-        }
-
-        UpdateCharacter();
+        DisplayCharacters();
     }
 
-    public void NextOption()
+    void DisplayCharacters()
     {
-        selectedOption = (selectedOption + 1) % characterDB.CharacterCount;
-        UpdateCharacter();
-        SaveSelection();
-    }
 
-    public void BackOption()
-    {
-        selectedOption--;
-        if (selectedOption < 0)
+         Vector3 spawnPos = spawnStartPoint.position;
+        if (currentCharacterInstance != null)
         {
-            selectedOption = characterDB.CharacterCount - 1;
+            Destroy(currentCharacterInstance);
         }
-        UpdateCharacter();
-        SaveSelection();
+
+        currentCharacterInstance = Instantiate(characters[Displayed_Character].characterPrefab, spawnPos, Quaternion.identity);
     }
 
-    private void UpdateCharacter()
+    public void NextCharcter()
     {
-        if (characterDB != null && artworkSprite != null)
+        Displayed_Character++;
+        if (Displayed_Character >= characters.Count)
         {
-            CharacterScript selectedCharacter = characterDB.GetCharacter(selectedOption);
-            if (selectedCharacter != null)
-            {
-                artworkSprite.sprite = selectedCharacter.characterSprite;
-            }
-            else
-            {
-                Debug.LogError("Invalid character index: " + selectedOption);
-            }
+            Displayed_Character = 0;
         }
-    }
+        DisplayCharacters();
 
-    private void SaveSelection()
+    }
+    public void BackCharcter()
     {
-        PlayerPrefs.SetInt("selectedOption", selectedOption);
-        PlayerPrefs.Save();
+        Displayed_Character--;
+        if (Displayed_Character < 0)
+        {
+            Displayed_Character = characters.Count - 1;
+        }
+        DisplayCharacters();
+
     }
 }

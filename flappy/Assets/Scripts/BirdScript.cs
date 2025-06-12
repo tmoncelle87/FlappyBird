@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
+    public bool isCharacterScreen;
     public float flapStrength;
     public LogicScript logic;
     public bool birdIsAlive = true;
@@ -21,14 +22,14 @@ public class BirdScript : MonoBehaviour
             if (logicGO != null)
             {
                 logic = logicGO.GetComponent<LogicScript>();
-                if (logic == null)
+                /*if (logic == null)
                 {
                     Debug.LogError("LogicScript component not found on the Logic GameObject.");
-                }
+                }*/
             }
             else
             {
-                Debug.LogError("No GameObject with the 'Logic' tag found.");
+                //Debug.LogError("No GameObject with the 'Logic' tag found.");
             }
         }
 
@@ -55,7 +56,10 @@ public class BirdScript : MonoBehaviour
             
         }
     }
+    private void ChracterSelectScreen()
+    {
 
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
