@@ -6,25 +6,25 @@ public class CharacterManagerScript : MonoBehaviour
     public Transform spawnStartPoint; // Empty GameObject in scene
     public List<ChcratacterTestScript> characters = new List<ChcratacterTestScript>();
     public int Displayed_Character = 0;
-    private GameObject currentCharacterInstance;
-
+    public GameObject currentCharacterInstance;
     void Start()
     {
         DisplayCharacters();
     }
-
-    void DisplayCharacters()
+    public void DisplayCharacters()
     {
-
-         Vector3 spawnPos = spawnStartPoint.position;
+        
+        Vector3 spawnPos = spawnStartPoint.position;
         if (currentCharacterInstance != null)
         {
             Destroy(currentCharacterInstance);
         }
 
+        
         currentCharacterInstance = Instantiate(characters[Displayed_Character].characterPrefab, spawnPos, Quaternion.identity);
-    }
 
+
+    }
     public void NextCharcter()
     {
         Displayed_Character++;
@@ -32,6 +32,7 @@ public class CharacterManagerScript : MonoBehaviour
         {
             Displayed_Character = 0;
         }
+
         DisplayCharacters();
 
     }
@@ -44,5 +45,12 @@ public class CharacterManagerScript : MonoBehaviour
         }
         DisplayCharacters();
 
+
+    }
+
+    public GameObject SaveCharacter()
+    {
+
+        return currentCharacterInstance;
     }
 }
