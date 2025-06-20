@@ -30,7 +30,7 @@ public class PipeSpawnScript : MonoBehaviour
 
         AdjustSpawnRate(); // Call this every frame to check the score
 
-        int milestone = BirdScript.playerScore / 10;
+        int milestone = BirdScript.playerScore / 7;
 
         if (milestone > lastMilestone)
         {
@@ -47,7 +47,7 @@ public class PipeSpawnScript : MonoBehaviour
     void AdjustSpawnRate()
     {
         float baseSpawnRate = Mathf.Lerp(5f, 0.5f, BirdScript.playerScore / 100f);
-        spawnRate = UnityEngine.Random.Range(baseSpawnRate - 0.25f, baseSpawnRate + 0.25f);
+        spawnRate = UnityEngine.Random.Range(baseSpawnRate - 0.25f, baseSpawnRate + 0.50f);
         // Access the static playerScore from BirdScript directly
       
     }
@@ -56,8 +56,8 @@ public class PipeSpawnScript : MonoBehaviour
     void spawnPipe()
     {
         Instantiate(pipeGap, new Vector3(transform.position.x + 10, 0, 0), Quaternion.identity);
-        Instantiate(pipeObject1, new Vector3(transform.position.x + 10, -19 + YValue, 0), Quaternion.identity);
-        Instantiate(pipeObject2, new Vector3(transform.position.x + 10, 19 - YValue, 0), Quaternion.Euler(0, 0, 180));
+        Instantiate(pipeObject1, new Vector3(transform.position.x + 10, -18.5f + YValue, 0), Quaternion.identity);
+        Instantiate(pipeObject2, new Vector3(transform.position.x + 10, 18.5f - YValue, 0), Quaternion.Euler(0, 0, 180));
 
     }
 }

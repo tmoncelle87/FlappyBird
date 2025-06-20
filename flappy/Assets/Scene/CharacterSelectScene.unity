@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,8 +335,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062175656}
-        m_TargetAssemblyTypeName: CharacterSelectLogicScript, Assembly-CSharp
+      - m_Target: {fileID: 1062175659}
+        m_TargetAssemblyTypeName: CharacterManagerScript, Assembly-CSharp
         m_MethodName: changeSceneToOptionScreen
         m_Mode: 1
         m_Arguments:
@@ -944,8 +944,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1062175656}
-        m_TargetAssemblyTypeName: CharacterSelectLogicScript, Assembly-CSharp
+      - m_Target: {fileID: 1062175659}
+        m_TargetAssemblyTypeName: CharacterManagerScript, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1314,8 +1314,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1062175657}
-  - component: {fileID: 1062175656}
-  - component: {fileID: 1062175658}
   - component: {fileID: 1062175659}
   m_Layer: 0
   m_Name: Logic Manager
@@ -1324,19 +1322,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1062175656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062175655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242639db393060c43b65244291e0d9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionScreenSceneName: Options screen fixed
 --- !u!4 &1062175657
 Transform:
   m_ObjectHideFlags: 0
@@ -1352,18 +1337,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1062175658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062175655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278bcddc93c7cd64585ff5bbe86be250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1062175659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58529b0b9e5274d4089a40348ed01e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionScreenSceneName: Options screen fixed
   spawnStartPoint: {fileID: 29891052}
   characters:
   - {fileID: 11400000, guid: 87d2c8971dda6ba45b3f479f3d903e57, type: 2}
@@ -1912,7 +1886,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1062175659}
         m_TargetAssemblyTypeName: CharacterManagerScript, Assembly-CSharp
-        m_MethodName: DisplayCharacters
+        m_MethodName: SaveCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

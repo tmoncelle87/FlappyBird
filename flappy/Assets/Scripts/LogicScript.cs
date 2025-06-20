@@ -17,7 +17,7 @@ public class LogicScript : MonoBehaviour
     public static LogicScript Instance; // Static instance of this script (Singleton).
     void Start()
     {
-        Invoke("SpawnPlayer", 0.01f); 
+        Invoke("SpawnPlayers", 0.01f); 
     }
     [ContextMenu("Increase Score")] // Allows calling addScore from the Inspector context menu.
     public void addScore(int scoreToAdd)
