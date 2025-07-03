@@ -22,9 +22,13 @@ public class PipeMiddleScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            if (logic != null) logic.addScore(1);
-            if (birdLogic != null) birdLogic.UpdatePlayerScore(1);
-            if (flapSound != null) audioSource.PlayOneShot(flapSound);
+            //if (flapSound != null) 
+            audioSource.PlayOneShot(flapSound);
+            //if (logic != null) 
+            logic.addScore(1);
+            //if (birdLogic != null)
+            birdLogic.UpdatePlayerScore(1);
+
         }
     }
 }

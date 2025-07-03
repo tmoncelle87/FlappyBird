@@ -24,6 +24,7 @@ public class DeathScreneLogicScript : MonoBehaviour
     public void changeSceneToGame()
     {
         // Loads the game scene. Called by UI buttons.
+        BirdScript.playerScore = 0;
         SceneManager.LoadScene(scenePlayGame);
     }
 

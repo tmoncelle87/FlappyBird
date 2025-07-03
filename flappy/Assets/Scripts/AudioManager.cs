@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -25,6 +26,8 @@ public class AudioManager : MonoBehaviour
 
         float savedVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 1f);
         SetMusicVolume(savedVolume);
+        backgroundMusic.loop = true;     // Ensure the music loops
+        backgroundMusic.Play();          // Start the music
 
     }
 

@@ -27,6 +27,15 @@ public class CharacterManagerScript : MonoBehaviour
 
         
         currentCharacterInstance = Instantiate(characters[Displayed_Character].characterPrefab, spawnPos, Quaternion.identity);
+        currentCharacterInstance.transform.localScale *= 3f;//= new Vector3(1.5f, 1.5f, 1.5f);
+
+        CircleCollider2D col = currentCharacterInstance.GetComponent<CircleCollider2D>();
+
+        if (col != null)
+        {
+            col.enabled = false;
+            col.enabled = true;
+        }
 
 
     }
@@ -39,6 +48,7 @@ public class CharacterManagerScript : MonoBehaviour
         }
 
         DisplayCharacters();
+        Debug.Log($"Spawned character {Displayed_Character} with scale {currentCharacterInstance.transform.localScale}");
 
     }
     public void BackCharcter()

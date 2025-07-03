@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,19 +7,27 @@ public class PipeSpawnScript : MonoBehaviour
     public GameObject pipeObject1;
     public GameObject pipeObject2;
     public GameObject pipeGap;
-    public float spawnRate = 2; // Default spawn rate
+    public float spawnRate = 4; // Default spawn rate
     private float timer = 0;
-    public float topPipeYValue =10;
-    public float YValue = 0f;
-    public int lastMilestone = 0;
+    public float minTopPipeValue = 11f;
+    public float lastPipe1YPosition;
+    public float maxTopPipeValue = 21f;
+    public float CurrentTopPipeYLevel;
+    public float CurrentBottomPipeYLevel;
+    private float direction = -1; // -1 means move downward, +1 means move upward
 
     void Start()
     {
+
+        CurrentBottomPipeYLevel = -21f;
+        CurrentTopPipeYLevel = 21f;
         spawnPipe(); // Initial pipe spawn
     }
 
     void Update()
     {
+        AdjustSpawnRate();
+
         timer += Time.deltaTime;
 
         if (timer >= spawnRate)
@@ -28,36 +36,47 @@ public class PipeSpawnScript : MonoBehaviour
             timer = 0;
         }
 
-        AdjustSpawnRate(); // Call this every frame to check the score
-
-        int milestone = BirdScript.playerScore / 7;
-
-        if (milestone > lastMilestone)
-        {
-            lastMilestone = milestone;
-
-            YValue += 1f; // or any other change you'd like to apply
-        }
-
     }
-
-
 
 
     void AdjustSpawnRate()
     {
-        float baseSpawnRate = Mathf.Lerp(5f, 0.5f, BirdScript.playerScore / 100f);
-        spawnRate = UnityEngine.Random.Range(baseSpawnRate - 0.25f, baseSpawnRate + 0.50f);
-        // Access the static playerScore from BirdScript directly
-      
+        float t = Mathf.Clamp01(BirdScript.playerScore / 20f);
+        spawnRate = Mathf.Lerp(3.5f, 1.25f, t);
     }
-
-    //I want this to spawn a pipe it will spawn twice once on top and once pon bottom of screen. they will bpoth spawn at the same tiome due to the spawn pipe function
+    private bool isFirstSpawn = true;
     void spawnPipe()
     {
-        Instantiate(pipeGap, new Vector3(transform.position.x + 10, 0, 0), Quaternion.identity);
-        Instantiate(pipeObject1, new Vector3(transform.position.x + 10, -18.5f + YValue, 0), Quaternion.identity);
-        Instantiate(pipeObject2, new Vector3(transform.position.x + 10, 18.5f - YValue, 0), Quaternion.Euler(0, 0, 180));
+        Vector3 spawnPos = new Vector3(transform.position.x + 10, 0, 0);
+        if (!isFirstSpawn)
+        {
+            float nextTopY = CurrentTopPipeYLevel + direction;
 
+            if (nextTopY > maxTopPipeValue)
+            {
+                direction = -1;
+            }
+            else if (nextTopY < minTopPipeValue)
+            {
+                direction = 1;
+            }
+
+            // Now apply the (possibly reversed) direction
+            CurrentTopPipeYLevel += direction;
+            CurrentBottomPipeYLevel -= direction;
+
+            Debug.Log("Top Pipe Y Level: " + CurrentTopPipeYLevel);
+            Debug.Log("Bottom Pipe Y Level: " + CurrentBottomPipeYLevel);
+        }
+
+        else
+        {
+            isFirstSpawn = false;
+        }
+
+        GameObject newGap = Instantiate(pipeGap, spawnPos, Quaternion.identity);
+        GameObject newPipe1 = Instantiate(pipeObject1, new Vector3(spawnPos.x, CurrentBottomPipeYLevel, 0), Quaternion.identity);
+        GameObject newPipe2 = Instantiate(pipeObject2, new Vector3(spawnPos.x, CurrentTopPipeYLevel, 0), Quaternion.Euler(0, 0, 180));
     }
+
 }
