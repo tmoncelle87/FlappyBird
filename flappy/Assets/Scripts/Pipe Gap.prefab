@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  deadZone: -5
+  deadZone: -50
 --- !u!114 &-7583560441533509522
 MonoBehaviour:
   m_ObjectHideFlags: 0

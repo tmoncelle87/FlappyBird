@@ -7,7 +7,7 @@ public class PipeSpawnScript : MonoBehaviour
     public GameObject pipeObject1;
     public GameObject pipeObject2;
     public GameObject pipeGap;
-    public float spawnRate = 4; // Default spawn rate
+    public float spawnRate = 4.5f; // Default spawn rate
     private float timer = 0;
     public float minTopPipeValue = 11f;
     public float lastPipe1YPosition;
@@ -41,8 +41,8 @@ public class PipeSpawnScript : MonoBehaviour
 
     void AdjustSpawnRate()
     {
-        float t = Mathf.Clamp01(BirdScript.playerScore / 20f);
-        spawnRate = Mathf.Lerp(3.5f, 1.25f, t);
+        float t = Mathf.Clamp01(BirdScript.playerScore / 50f);
+        spawnRate = Mathf.Lerp(4.5f, 2.5f, t);
     }
     private bool isFirstSpawn = true;
     void spawnPipe()
@@ -54,19 +54,22 @@ public class PipeSpawnScript : MonoBehaviour
 
             if (nextTopY > maxTopPipeValue)
             {
-                direction = -1;
+                direction = -0.5f;
+            }
+            else if (nextTopY > minTopPipeValue && nextTopY < maxTopPipeValue && BirdScript.playerScore > 50)
+            {
+                direction = -0.25f;
             }
             else if (nextTopY < minTopPipeValue)
             {
-                direction = 1;
+                direction = 0.5f;
             }
+           
 
             // Now apply the (possibly reversed) direction
             CurrentTopPipeYLevel += direction;
             CurrentBottomPipeYLevel -= direction;
 
-            Debug.Log("Top Pipe Y Level: " + CurrentTopPipeYLevel);
-            Debug.Log("Bottom Pipe Y Level: " + CurrentBottomPipeYLevel);
         }
 
         else
@@ -77,6 +80,7 @@ public class PipeSpawnScript : MonoBehaviour
         GameObject newGap = Instantiate(pipeGap, spawnPos, Quaternion.identity);
         GameObject newPipe1 = Instantiate(pipeObject1, new Vector3(spawnPos.x, CurrentBottomPipeYLevel, 0), Quaternion.identity);
         GameObject newPipe2 = Instantiate(pipeObject2, new Vector3(spawnPos.x, CurrentTopPipeYLevel, 0), Quaternion.Euler(0, 0, 180));
+        Debug.Log(spawnRate);
     }
 
 }
